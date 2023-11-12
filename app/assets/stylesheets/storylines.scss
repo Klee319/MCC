@@ -1,0 +1,14 @@
+/* スタイルシート */
+#talks-container {
+  max-height: 400px; /* チャットメッセージの表示領域の最大高さ */
+  overflow-y: scroll; /* 縦方向のスクロールを有効にする */
+}
+
+#talks {
+  margin-bottom: 0; /* メッセージ間の余白を調整 */
+}
+
+.talk {
+  margin-bottom: 10px; /* メッセージ間の余白を調整 */
+}
+

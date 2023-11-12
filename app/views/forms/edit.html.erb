@@ -1,0 +1,47 @@
+<head>
+  <!--javascript new_preview.jsの読み込み-->
+  <%= javascript_include_tag 'new_preview'%>
+</head>
+
+<div class="cover-edit"><!--投稿を編集-->
+  <div class="container">
+    <div class="row justify-content-center">
+      <h1 class="font-weight-normal mt-5 mb-5">投稿編集</h1><!--ページのタイトルを表示-->
+    </div>
+    <div class="row justify-content-center">
+      <%= form_with model: @post, url: "/forms/#{@post.id}", local: true do |f| %><!--無視-->
+        <div class="form-group">
+          <label class="form-label">タイトル</label>
+          <%= f.text_field :title, class: "form-control" %>　<!--投稿タイトル入力-->
+        </div>
+        <div class="form-group">
+          <label class="form-label">内容</label>
+          <%= f.text_area :text, rows: 10, class: "form-control" %><!--投稿内容入力-->
+        </div>
+        <div class="form-group">
+          <label class="form-label">画像</label><br>
+          <%= f.hidden_field :image_id_cache %>
+          <%= f.file_field :image_id,id:"imageInput"%><!--サムネ画像アップロード-->
+
+          <div class="preview" id="imagePreview">
+            <%if f.file_field :image_id==nil%>
+              <%if @post.image_id?%>
+                <p>
+                  <%= image_tag @post.image_id.url %><!--アップロードした画像を表示 -->
+                </p>
+              <%else%>
+                <img  alt="" src="">
+              <%end%>
+            <%else%>
+              <img  alt="" src="">
+            <%end%>
+          </div>
+        </div>
+        <%= f.submit '保存する', class: "btn btn-success" %><br>　<!--保存ボタン-->
+        <%= link_to '投稿詳細ページへ', "/forms/#{@post.id}", class: "btn btn-dark mt-3" %><!--投稿詳細にページ遷移-->
+        <%= link_to '削除する', form_path(@post.id), data: { turbo: true, turbo_method: :delete } %><!--削除-->
+        <br>
+      <% end %>
+    </div>
+  </div>
+</div>

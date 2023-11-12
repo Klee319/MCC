@@ -1,0 +1,60 @@
+<head>
+  <!--javascript new_preview.jsの読み込み-->
+  <%= javascript_include_tag 'new_preview' %>
+</head>
+<div class="cover-new">
+  <div class="container">
+    <div class="row justify-content-center">
+      <h1 class="font-weight-normal mt-3">ルームを編集</h1>
+    </div>
+    <div class="row justify-content-center">
+      <%= form_with model: @post, url: "/storylines/#{@post.id}", data: { behavior: "storyline_speaker" }, local: true do |f| %>
+        <div class="form-group">
+          <label class="form-label">タイトル</label>
+          <%= f.text_field :title, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <label class="form-label">内容</label>
+          <%= f.text_area :subject, rows: 10, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <label class="form-label">タグ</label>
+          <%= f.text_field :tags, rows: 10, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <label class="form-label">画像</label><br>
+          <%= f.label :image %>
+          <%= f.file_field :image, id: "imageInput" %><!--サムネ画像アップロード-->
+
+          <div class="preview" id="imagePreview">
+            <% if f.file_field :image == nil %>
+              <% if @post.image? %>
+                <p>
+                  <%= image_tag @post.image.url %><!--アップロードした画像を表示 -->
+                </p>
+              <% else %>
+                <img alt="" src="">
+              <% end %>
+            <% else %>
+              <img alt="" src="">
+            <% end %>
+          </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">private</label>
+            <!-- チェックボックスで真偽を返す -->
+            <%= f.check_box :private, class: "form-control", :as => :boolean %>
+          </div>
+          <!-- 提出する -->
+          　　　
+          <div class="form-group">
+            <%= f.submit "作成", class: "btn btn-primary" %> <!-- 提出ボタン -->
+      <% end %>
+      <% if @post.private == true %>
+        <%= link_to "AddUsers", "/storylines/#{@post.id}/add_user" %>
+      <% end %>
+      <%= link_to "削除", "/storylines/#{@post.id}", data: { turbo: true, turbo_method: :delete } %>
+      </div>
+      </div>
+    </div>
+  </div>

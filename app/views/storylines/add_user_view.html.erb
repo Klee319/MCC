@@ -1,0 +1,17 @@
+<% if @user.exists? %>
+  <%= form_with model: @add_user, url: "/storylines/#{@post.id}/add_user", local: true do |f| %>
+    <% @user.each do |user| %>
+      <%= f.label user.name %>>
+      <!-- チェックされていたらそのユーザーのidを変数に入れる-->
+      <% if @users.include?(user) %>>
+        <%= f.check_box user.id, checked: true %>
+      <% else %>
+        <%= f.check_box user.id, checked: false %>
+      <% end %>>
+    <% end %>
+    <%= f.submit "追加する" %>
+  <% end %>
+
+<% else %>
+  <p>ユーザーはいません</p>
+<% end %>

@@ -1,0 +1,15 @@
+<div class="talk" id="talk-<%= talk.id %>">
+  <p>
+
+    <p><%=talk.user.name%></p>
+
+    <div class="one-post">
+
+      <% if talk.image? %>  <!-- アップロード画像がある場合に実行する -->
+        <p>
+          <%= image_tag talk.image.half.url %><!-- userインスタンスの画像ファイルのURLを取得し表示 -->
+        </p>
+      <% end %>
+    </div>
+    <p><%= talk.message %></p>
+    </div>

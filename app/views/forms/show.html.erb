@@ -1,0 +1,56 @@
+<div class="cover-show">
+  <div class="container">
+    <div class="row">
+      <h1 class="d-flex justify-content-center mt-5 mb-5">投稿詳細</h1>
+    </div>
+      <div class="row">  <!-- ユーザー情報を表示 -->
+        <div class ="col">
+            <% if @post.user != nil %>
+            <div class="fs-1"><%= @post.user.name %></div>
+          <% end %>
+        </div>
+      </div>
+        <div class="row">
+          <% if @post.image_id? %>  <!-- アップロード画像がある場合に実行する -->
+            <p class="caption d-flex justify-content-center">
+              <%= image_tag @post.image_id.url %><!-- userインスタンスの画像ファイルのURLを取得し表示 -->
+            </p>
+          <% end %>
+        </div>
+        <p class="caption d-flex justify-content-center "><%= @post.title %>
+          <%= render @post%>
+        </p>
+        <h2>内容</h2>
+        <p id="text"><%= @post.text %></p>
+        <% if current_user == @post.user %>
+          <%= link_to '編集する', "/forms/#{@post.id}/edit",data: { Turbo: false }, class: "btn btn-info mr-3" %>
+        <% end %>
+        <%= link_to '投稿一覧ページへ', "/forms", class: "btn btn-dark mt-3" %>
+
+
+
+      <div class="comments ml-5 mt-5">
+        <%= form_with model: [@post, @comment], url: "/forms/#{@post.id}/comments", local: true do |f| %>
+          <%= f.text_area :comment, :size => "60x3", placeholder: "コメントする" %>
+          <%= f.submit "送信する", class: "btn btn-success mb-4" %>
+        <% end %>
+
+        <p>コメント件数：<%= @comments.count %></p>
+        <% @comments.each do |comment| %>
+          <div class="comments-index mb-2">
+            <%= comment.user.name %>
+            <%= comment.created_at.strftime('%Y/%m/%d') %><br>
+            <div class="d-flex">
+              <%= comment.comment %>
+              <% if comment.user == current_user %>
+                <div class="comment-delete">
+                  <%= button_to "削除", form_comment_path(comment.post, comment), method: :delete, class: "btn-sm btn-danger" %>
+                </div>
+                </div>
+                </div>
+              <% end %>
+        <% end %>
+        <%= paginate @comments %>
+      </div>
+  </div>
+</div>
