@@ -11,7 +11,7 @@
         <div class="col-md-4">
           <div class="card mb-4 box-shadow">
             <% if post.image.present? %> <!-- アップロード画像がある場合に実行する -->
-              <%= image_tag post.image.first.variant( background: "black",	resize_to_fit: [256, 192],gravity: "center", extent: "256x192" ).processed, class: "card-img-top" %>
+              <%= image_tag post.image.first.variant( background: "black",	resize_to_fit: [327, 184],gravity: "center", extent: "327x184" ).processed, class: "card-img-top" %>
 
             <% end %>
             <div class="card-body">
