@@ -1,4 +1,4 @@
-<div id ='storylines'>
+<div id='storylines'>
 </div>
 <div class="cover-index">
   <div class="container">
@@ -12,15 +12,15 @@
         <% end %>
         <div class="col-lg-4 col-md-6">
           <div class="one-post d-flex justify-content-around">
-              <div class="card my-3"  style="width: 18rem; height: 15rem;">
-                <p class="caption  card-title d-flex justify-content-around"><%= link_to post.title, "/storylines/#{post.id}", data: { turbo: false }%></p>
-                <% if post.image? %>  <!-- アップロード画像がある場合に実行する -->
-                  <div class="caption">
-                    <%= image_tag post.image.half.url, class: "card-img img-fluid" %><!-- userインスタンスの画像ファイルのURLを取得し表示 -->
-                  </div>
-                <% end %>
-                <p class="caption text-truncate"><%= post.subject %></p>
-              </div>
+            <div class="card my-3" style="width: 18rem; height: 15rem;">
+              <p class="caption  card-title d-flex justify-content-around"><%= link_to post.title, "/storylines/#{post.id}", data: { turbo: false } %></p>
+              <% if post.image? %>  <!-- アップロード画像がある場合に実行する -->
+                <div class="caption">
+                  <%= image_tag post.image.half.url, class: "card-img img-fluid" %><!-- userインスタンスの画像ファイルのURLを取得し表示 -->
+                </div>
+              <% end %>
+              <p class="caption text-truncate"><%= post.subject %></p>
+            </div>
           </div>
         </div>
       <% end %>

@@ -39,22 +39,22 @@
               <img alt="" src="">
             <% end %>
           </div>
-          </div>
-          <div class="form-group">
-            <label class="form-label">private</label>
-            <!-- チェックボックスで真偽を返す -->
-            <%= f.check_box :private, class: "form-control", :as => :boolean %>
-          </div>
-          <!-- 提出する -->
-          　　　
-          <div class="form-group">
-            <%= f.submit "作成", class: "btn btn-primary" %> <!-- 提出ボタン -->
+        </div>
+        <div class="form-group">
+          <label class="form-label">private</label>
+          <!-- チェックボックスで真偽を返す -->
+          <%= f.check_box :private, class: "form-control", :as => :boolean %>
+        </div>
+        <!-- 提出する -->
+        　　　
+        <div class="form-group">
+          <%= f.submit "作成", class: "btn btn-primary" %> <!-- 提出ボタン -->
       <% end %>
       <% if @post.private == true %>
         <%= link_to "AddUsers", "/storylines/#{@post.id}/add_user" %>
       <% end %>
       <%= link_to "削除", "/storylines/#{@post.id}", data: { turbo: true, turbo_method: :delete } %>
       </div>
-      </div>
     </div>
   </div>
+</div>

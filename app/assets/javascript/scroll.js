@@ -5,7 +5,8 @@ function scrollToBottom() {
     var container = document.getElementById('talks-container');
     container.scrollTop = container.scrollHeight;
 }
+
 // ページ読み込み時に画面を一番下にスクロール
 document.addEventListener("DOMContentLoaded", scrollToBottom);
 document.addEventListener("turbolinks:load", scrollToBottom);
-document.addEventListener("submmit", scrollToBottom);
+document.addEventListener("submit", scrollToBottom);

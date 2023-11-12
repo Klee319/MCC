@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   mount ActionCable.server => '/cable'
   devise_for :users
   resources :users do
-    resource :relationships, only: [:create, :destroy]
+    resource :relationships, only: %i[create destroy]
     get 'followings' => 'relationships#followings'
     get 'followers' => 'relationships#followers'
   end
@@ -13,8 +13,8 @@ Rails.application.routes.draw do
   get 'home' => 'homes#home'
 
   resources :forms do
-    resources :comments, only: [:create, :destroy]
-    resource :favorites, only: [:create, :destroy]
+    resources :comments, only: %i[create destroy]
+    resource :favorites, only: %i[create destroy]
   end
 
   resources :storylines do

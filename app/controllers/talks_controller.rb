@@ -11,7 +11,7 @@ class TalksController < ApplicationController
     @post.storyline_id = (params[:storyline_id])
     @post.save
     TalkBroadcastJob.perform_later(@post, 'create')
-    #redirect_to storyline_path(@post.storyline_id)
+    # redirect_to storyline_path(@post.storyline_id)
   end
 
   def index

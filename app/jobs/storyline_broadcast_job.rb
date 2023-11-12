@@ -2,7 +2,7 @@ class StorylineBroadcastJob < ApplicationJob
   queue_as :default
 
   def perform(storyline, action)
-    ActionCable.server.broadcast 'storyline_channel',{action: action, storyline: render_message(storyline), storyline_id: storyline.id}
+    ActionCable.server.broadcast 'storyline_channel', { action: action, storyline: render_message(storyline), storyline_id: storyline.id }
   end
 
   private

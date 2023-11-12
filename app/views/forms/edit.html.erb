@@ -1,6 +1,6 @@
 <head>
   <!--javascript new_preview.jsの読み込み-->
-  <%= javascript_include_tag 'new_preview'%>
+  <%= javascript_include_tag 'new_preview' %>
 </head>
 
 <div class="cover-edit"><!--投稿を編集-->
@@ -21,20 +21,20 @@
         <div class="form-group">
           <label class="form-label">画像</label><br>
           <%= f.hidden_field :image_id_cache %>
-          <%= f.file_field :image_id,id:"imageInput"%><!--サムネ画像アップロード-->
+          <%= f.file_field :image_id, id: "imageInput" %><!--サムネ画像アップロード-->
 
           <div class="preview" id="imagePreview">
-            <%if f.file_field :image_id==nil%>
-              <%if @post.image_id?%>
+            <% if f.file_field :image_id == nil %>
+              <% if @post.image_id? %>
                 <p>
                   <%= image_tag @post.image_id.url %><!--アップロードした画像を表示 -->
                 </p>
-              <%else%>
-                <img  alt="" src="">
-              <%end%>
-            <%else%>
-              <img  alt="" src="">
-            <%end%>
+              <% else %>
+                <img alt="" src="">
+              <% end %>
+            <% else %>
+              <img alt="" src="">
+            <% end %>
           </div>
         </div>
         <%= f.submit '保存する', class: "btn btn-success" %><br>　<!--保存ボタン-->

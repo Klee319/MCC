@@ -4,7 +4,7 @@
       ♥<%= post.favorites.count %> いいね
     <% end %>
   <% else %>
-    <%= button_to form_favorites_path(post), data: { turbo: true, turbo_method: :post },class: "btn btn-outline-light favorite_btn" do %>
+    <%= button_to form_favorites_path(post), data: { turbo: true, turbo_method: :post }, class: "btn btn-outline-light favorite_btn" do %>
       ♡<%= post.favorites.count %> いいね
     <% end %>
   <% end %>

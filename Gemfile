@@ -80,6 +80,6 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'kaminari'
 gem 'redis-rails'
-gem "font-awesome-sass", "~> 6.4.0" 
+gem "font-awesome-sass", "~> 6.4.0"
 
 gem "sassc-rails", "~> 2.1"

@@ -4,70 +4,70 @@
       <h1 class="fw-bold mt-3 d-flex justify-content-center"><%= @post.title %></h1>
     </div>
     <div class="row">
-        <% if @post.image? %>  <!-- アップロード画像がある場合に実行する -->
-          <p>
-            <%= image_tag @post.image.half.url %><!-- userインスタンスの画像ファイルのURLを取得し表示 -->
-          </p>
-        <% end %>
-        <p class="caption d-flex justify-content-center"><%= @post.subject %></p>
+      <% if @post.image? %>  <!-- アップロード画像がある場合に実行する -->
+        <p>
+          <%= image_tag @post.image.half.url %><!-- userインスタンスの画像ファイルのURLを取得し表示 -->
+        </p>
+      <% end %>
+      <p class="caption d-flex justify-content-center"><%= @post.subject %></p>
 
-          <!-- チャットメッセージ表示用のコンテナ -->
-          <div id="talks-container" class="container-fluid">
-            <!-- チャットメッセージ -->
-            <div id="talks" class="row">
-              <%= render @comments %>
-            </div>
+      <!-- チャットメッセージ表示用のコンテナ -->
+      <div id="talks-container" class="container-fluid">
+        <!-- チャットメッセージ -->
+        <div id="talks" class="row">
+          <%= render @comments %>
+        </div>
+      </div>
+
+      <div class="cover-new">
+        <div class="container">
+          <div class="row justify-content-center">
+            <h1 class="font-weight-normal mt-3">Comment</h1>
           </div>
-
-        <div class="cover-new">
-          <div class="container">
-            <div class="row justify-content-center">
-              <h1 class="font-weight-normal mt-3">Comment</h1>
-            </div>
-            <div class="row justify-content-center">
-              <%= form_with model: Talk.new, url: "/storylines/#{@post.id}/talks", local: true,id: 'your-form-id' do |f| %>
-                <div class="form-group">
-                  <label class="form-label">内容</label>
-                  <%= f.text_field :message, rows: 10, class: "form-control" %>
-                </div>
-                <div class="form-group">
-                  <label class="form-label">画像</label><br>
-                  <%= f.label :image %>
-                  <%= f.file_field :image %>
-                  <% if @post.image? %>  <!-- アップロード画像がある場合に実行する -->
-                    <p>
-                      <%= image_tag @post.image.url %><!-- userインスタンスの画像ファイルのURLを取得し表示 -->
-                    </p>
-                  <% end %>
-                </div>
-                <%= f.submit '投稿する', class: "btn btn-success" %>
-              <% end %>
-            </div>
+          <div class="row justify-content-center">
+            <%= form_with model: Talk.new, url: "/storylines/#{@post.id}/talks", local: true, id: 'your-form-id' do |f| %>
+              <div class="form-group">
+                <label class="form-label">内容</label>
+                <%= f.text_field :message, rows: 10, class: "form-control" %>
+              </div>
+              <div class="form-group">
+                <label class="form-label">画像</label><br>
+                <%= f.label :image %>
+                <%= f.file_field :image %>
+                <% if @post.image? %>  <!-- アップロード画像がある場合に実行する -->
+                  <p>
+                    <%= image_tag @post.image.url %><!-- userインスタンスの画像ファイルのURLを取得し表示 -->
+                  </p>
+                <% end %>
+              </div>
+              <%= f.submit '投稿する', class: "btn btn-success" %>
+            <% end %>
           </div>
         </div>
-
-
-        <%= link_to "Addcomment", new_storyline_talk_path(@post.id) %>
-        <% if @post.user_id == current_user.id %>
-          <%= link_to "編集", edit_storyline_path(@post.id),data: { Turbo: false }%>
-        <% end %>
       </div>
-      <% if @post.private == true %>
-        <% if @user != nil %>
-          <% @user.each do |user| %>
-            <table>
-              <td><%= user.name %></td>
-              <% if user.profile_image_id? %>
-                <%= image_tag user.profile_image_id.half.url %>
-              <% end %>
-              <td>フォロー数: <%= user.followings.count %></td>
-              <td>フォロワー数: <%= user.followers.count %></td>
-            </table>
-          <% end %>
-        <% else %>
-          <p>ユーザーはいません</p>
-        <% end %>
+
+
+      <%= link_to "Addcomment", new_storyline_talk_path(@post.id) %>
+      <% if @post.user_id == current_user.id %>
+        <%= link_to "編集", edit_storyline_path(@post.id), data: { Turbo: false } %>
       <% end %>
     </div>
+    <% if @post.private == true %>
+      <% if @user != nil %>
+        <% @user.each do |user| %>
+          <table>
+            <td><%= user.name %></td>
+            <% if user.profile_image_id? %>
+              <%= image_tag user.profile_image_id.half.url %>
+            <% end %>
+            <td>フォロー数: <%= user.followings.count %></td>
+            <td>フォロワー数: <%= user.followers.count %></td>
+          </table>
+        <% end %>
+      <% else %>
+        <p>ユーザーはいません</p>
+      <% end %>
+    <% end %>
   </div>
+</div>
 </div>

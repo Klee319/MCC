@@ -11,13 +11,13 @@ class FormsController < ApplicationController
     if @post.save
       redirect_to form_path(@post.id)
     else
-      render :new
+      render new
     end
   end
 
   def index
     @post = Post.new
-    @posts=Post.all.reverse_order
+    @posts = Post.all.reverse_order
     #@posts = Post.page(params[:page]).reverse_order
   end
 
@@ -57,7 +57,7 @@ class FormsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :text, :image_id, :image_id_cache, :user_id,image: [])
+    params.require(:post).permit(:title, :text, :image_id, :image_id_cache, :user_id, image: [])
   end
 
 end

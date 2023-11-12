@@ -9,6 +9,6 @@ class FavoriteChannel < ApplicationCable::Channel
   end
 
   def speak
-    ActionCable.server.broadcast('favorite_channel', {post: data['post']})
+    ActionCable.server.broadcast('favorite_channel', { post: data['post'] })
   end
 end
