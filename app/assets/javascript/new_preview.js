@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Create a new image element for each file and set its source
                 const imagePreview = document.createElement('img');
                 imagePreview.classList.add('img-fluid'); // Optional: Add class for styling
-                //imagePreview.src = reader.result;
+                imagePreview.src = reader.result;
                 imagePreview.style.marginBottom = '20px';
 
                 // Append the preview image to the container

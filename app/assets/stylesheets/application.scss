@@ -21,7 +21,9 @@ body {
   margin: 0;
   padding: 0;
 }
-
+.bg-dark.navbar {
+  background-color: #040404!important;
+}
 .profiler-results {
   display: none;
 }
@@ -54,6 +56,19 @@ a:hover {
   height: 60px;
   position: relative;
   left: -50%;
+}
+
+.d-flex .form-control {
+  background-color: #252525;
+  border: 1px solid #666;
+  color: #FFFFFF;
+}
+.d-flex .form-control:focus {
+  background-color: #626262; /* クリック時の背景色 */
+  color: #ffffff; /* クリック時のテキストカラー */
+}
+.d-flex .form-control::placeholder {
+  color: #ccc;
 }
 
 @import "bootstrap";

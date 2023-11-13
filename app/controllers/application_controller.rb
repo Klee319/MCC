@@ -1,9 +1,14 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!, except: [:top]
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :create_instance
 
   protected
 
+
+  def create_instance
+    @new_post = Post.new
+  end
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
   end

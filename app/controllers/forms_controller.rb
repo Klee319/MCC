@@ -5,11 +5,11 @@ class FormsController < ApplicationController
   end
 
   def create
+    print("\e[31m#{post_params}\e[0m")
     @post = Post.new(post_params)
-    puts @post
     @post.user = current_user
     if @post.save
-      redirect_to form_path(@post.id)
+     redirect_to form_path(@post.id)
     end
   end
 
