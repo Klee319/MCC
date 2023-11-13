@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>グラデーション入力フォーム</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+      body {
+          background-color: #333; /* ダークバックグラウンド */
+          color: #FFFFFF; /* テキストの色 */
+          font-family: Arial, sans-serif; /* フォントの種類 */
+      }
+      .gradient-form {
+          background:#333; /* グラデーションの背景 */
+          padding: 30px;
+          border-radius: 8px;
+          border: none;
+          margin-top: 50px;
+          width: 150%; /* フォームの幅を画面幅の50%に設定 */
+          max-width: 100%; /* 最大幅を100%に設定して画面幅を超えないようにする */
+      }
+     .btn-primary {
+          box-sizing: border-box; /* パディングとボーダーを幅に含める */
+          width: 100%; /* 入力フィールドの幅を100%に設定 */
+          color: #FFFFFF; /* 入力テキストの色 */
+          margin-bottom: 15px; /* 下部のマージン */
+          background-color: #444; /* ボタンの背景色 */
+          border: none; /* ボタンのボーダーをなくす */
+          padding: 10px 20px; /* ボタンのパディング */
+      }
+      .btn-primary:hover {
+          background-color: #3f3f3f; /* ホバー時の背景色 */
+      }
+      .form-control{
+          box-sizing: border-box;
+          border: 0 solid #3e3e3e;
+          width: 100%; /* 入力フィールドの幅を100%に設定 */
+          margin-bottom: 15px; /* 下部のマージン */
+          background-color: #3e3e3e;
+
+          /* その他のスタイル設定 */
+      }
+      .form-group{
+          box-sizing: border-box;
+          border: 0 solid #3e3e3e;
+          width: 100%; /* 入力フィールドの幅を100%に設定 */
+          margin-bottom: 15px; /* 下部のマージン */
+      }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8"> <!-- 元のcol-md-6からcol-md-8に変更して横幅を拡大 -->
+      <form class="gradient-form">
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input type="text" class="form-control" id="firstName" placeholder="Enter first name">
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input type="text" class="form-control" id="lastName" placeholder="Enter last name">
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" id="email" placeholder="Enter email">
+        </div>
+        <div class="form-group">
+          <label for="subject">Message Subject</label>
+          <input type="text" class="form-control" id="subject" placeholder="Enter subject">
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea class="form-control" id="message" rows="3" placeholder="Drop your message here"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">SEND</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

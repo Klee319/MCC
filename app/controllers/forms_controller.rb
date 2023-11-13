@@ -10,8 +10,6 @@ class FormsController < ApplicationController
     @post.user = current_user
     if @post.save
       redirect_to form_path(@post.id)
-    else
-      render new
     end
   end
 

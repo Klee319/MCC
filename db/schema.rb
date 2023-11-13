@@ -98,7 +98,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_21_022459) do
     t.integer "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
     t.boolean "private", default: true
   end
 
@@ -122,14 +121,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_21_022459) do
   end
 
   create_table "talks", force: :cascade do |t|
-    t.string "message"
+    t.string "mesage"
     t.integer "mension_user"
     t.string "image"
     t.integer "user_id"
     t.integer "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "storyline_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
