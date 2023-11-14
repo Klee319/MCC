@@ -53,7 +53,6 @@
     <div class="row">
       <% @posts.each do |post| %>
         <div class="col-md-4">
-          <div class="ratio ratio-1x1">
           <div class="card mb-4 box-shadow">
             <% if post.image.present? %> <!-- アップロード画像がある場合に実行する -->
               <%= image_tag post.image.first.variant(background: "black", resize_to_fit: [327, 184], gravity: "center", extent: "327x184").processed, class: "card-img-top" %>
@@ -69,7 +68,6 @@
                 <small class="text-muted"><%= post.created_at %></small>
               </div>
             </div>
-          </div>
           </div>
         </div>
       <% end %>
