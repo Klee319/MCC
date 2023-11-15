@@ -1,17 +1,42 @@
 {
+
   "name": "mcc-project",
+
   "version": "1.0.0",
+
   "private": true,
+
   "dependencies": {
+
+    "@enginehub/schematicwebviewer": "^4.8.1",
+
     "@rails/actioncable": "^7.0.5-1",
+
     "@rails/webpacker": "5.4.4",
+
+    "babylonjs": "^6.29.1",
+
     "channels": "^0.0.4",
+
+    "prismarine-chunk": "^1.35.0",
+
     "prismarine-viewer": "^1.25.0",
-    "scroll": "^3.0.1"
+
+    "scroll": "^3.0.1",
+
+    "vec3": "^0.1.8"
+
   },
+
   "devDependencies": {
+
     "webpack": "4.46.0",
+
     "webpack-cli": "3.3.12",
+
     "webpack-dev-server": "3"
+
   }
+
 }
+

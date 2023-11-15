@@ -5,3 +5,4 @@
 //= link bootstrap.min.js
 //= link new_preview.js
 //=link application.js
+//= link schematics_viewer.js

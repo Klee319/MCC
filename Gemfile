@@ -81,5 +81,5 @@ gem 'devise'
 gem 'kaminari'
 gem 'redis-rails'
 gem "font-awesome-sass", "~> 6.4.0"
-
+gem "webpacker"
 gem "sassc-rails", "~> 2.1"
